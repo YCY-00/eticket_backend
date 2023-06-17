@@ -30,6 +30,7 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    path("api/events/", include("backend.event.urls", namespace="event")),
 ]
 
 if settings.DEBUG:
