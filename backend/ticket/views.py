@@ -8,9 +8,6 @@ from rest_framework import permissions
 from .models import TicketModel
 from .serializers import TicketModelSerializer
 
-from .models import TicketModel
-from .serializers import TicketModelSerializer
-
 @api_view(["GET"])
 @permission_classes((permissions.AllowAny,))
 def get_ticket(request, id):
