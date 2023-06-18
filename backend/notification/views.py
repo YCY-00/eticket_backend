@@ -13,9 +13,9 @@ from .serializers import NotificaitonModelSerializer
 # Create your views here.
 @api_view(["GET"])
 @permission_classes((permissions.AllowAny,))
-def get_notification(request):
+def get_notification(request, id):
     try:
-        Notification = NotificationModel.objects.get()  # what data should we get?
+        Notification = NotificationModel.objects.get(id = id)
         serializer = NotificationModelSerializer(Notification)
         return Response({"status": "success", "data": serializer.data}) 
     except Exception as e:
@@ -60,10 +60,10 @@ def register_notification(request):
 
 @api_view(["PUT"])
 @permission_classes((permissions.AllowAny,))
-def update_notification(request):
+def update_notification(request, id):
     try:
         # do something
-        notification = NotificationModel.objects.get() # what data should we get?
+        notification = NotificationModel.objects.get(id = id) # what data should we get?
         serializer = NotificationModelSerializer(ticket, data=request.data) 
         if serializer.is_valid():
             serializer.save()
@@ -83,7 +83,7 @@ def update_notification(request):
 
 @api_view(["DELETE"])
 @permission_classes((permissions.AllowAny,))
-def delete_notification(request):
+def delete_notification(request, id):
     try:
         # do something
         notification = NotificationModel.objects.get(id=id)
