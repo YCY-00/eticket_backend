@@ -8,12 +8,12 @@ from .views import (
 )
 
 
-app_name = "ticket"
+app_name = "notification"
 
 urlpatterns = [
-    path("get_ticket/", get_ticket, name="get_ticket"),
-    path("update/<str:ticket_id>", update_ticket, name="update_ticket"),
-    path("get/<str:ticket_id>/", get_event, name="get_event"),
-    path("get/", get_tickets, name="get_tickets"),
-    path("delete/<str:ticket_id>", delete_ticket, name="delete_ticket"),
+    path("register_notificaiton/", register_notification, name="register_notification"),
+    path("update/<str:notification_id>", update_ticket, name="update_notification"),
+    path("get/<str:notification_id>/", get_event, name="get_notification"),
+    path("get/", get_notificaitons, name="get_notifications"),
+    path("delete/<str:notification_id>", delete_notification, name="delete_notification"),
 ]
