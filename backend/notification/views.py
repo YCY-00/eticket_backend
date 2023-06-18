@@ -7,6 +7,9 @@ from rest_framework.response import Response
 
 from rest_framework import permissions
 
+from .models import NotificationModel
+from .serializers import NotificaitonModelSerializer
+
 # Create your views here.
 @api_view(["GET"])
 @permission_classes((permissions.AllowAny,))
