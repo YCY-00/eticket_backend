@@ -15,11 +15,9 @@ from .serializers import NotificaitonModelSerializer
 @permission_classes((permissions.AllowAny,))
 def get_notification(request):
     try:
-        # do something
-        Notification = NotificationModel.objects.get(id=id)
+        Notification = NotificationModel.objects.get()  # what data should we get?
         serializer = NotificationModelSerializer(Notification)
         return Response({"status": "success", "data": serializer.data}) 
-        return Response({"status": "success"})
     except Exception as e:
         return Response(
             {"status": "failed", "message": str(e)},
@@ -48,7 +46,6 @@ def get_notifications(request):
 @permission_classes((permissions.AllowAny,))
 def register_notification(request):
     try:
-        # do something
         serializer =  NotificationModelSerializer(data=request.data) 
         if serializer.is_valid():
             serializer.save() 
@@ -66,10 +63,10 @@ def register_notification(request):
 def update_notification(request):
     try:
         # do something
-        notification = NotificationModel.objects.get(id=id) 
+        notification = NotificationModel.objects.get() # what data should we get?
         serializer = NotificationModelSerializer(ticket, data=request.data) 
         if serializer.is_valid():
-            serializer.save()  # Serializer가 유효하다면 데이터를 저장합니다
+            serializer.save()
             return Response({"status": "success", "data": serializer.data})
         else:
             return Response(
