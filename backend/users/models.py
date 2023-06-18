@@ -17,6 +17,7 @@ class User(AbstractUser):
     last_name = CharField(_("Last Name of User"), blank=True, max_length=255)  # type: ignore
 
     birthdate = DateField(null=True, blank=True)
+    phone_number = CharField(max_length=20, null=True, blank=True)
     gender = CharField(max_length=1, null=True, blank=True)
     is_admin = BooleanField(default=False)
     is_organizer = BooleanField(default=False)

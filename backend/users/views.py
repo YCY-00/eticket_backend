@@ -63,17 +63,5 @@ class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def get_object(self):
         return self.request.user
 
+
 user_delete_view = UserDeleteView.as_view()
-
-
-# @api_view(["GET"])
-# @permission_classes((permissions.AllowAny,))
-# def widget_launch(request):
-#     try:
-#         # do something
-#         return Response({"status": "success"})
-#     except Exception as e:
-#         return Response(
-#             {"status": "failed", "message": str(e)},
-#             status=400,
-#         )

@@ -31,6 +31,9 @@ urlpatterns += [
         name="api-docs",
     ),
     path("api/events/", include("backend.event.urls", namespace="event")),
+    path("api/ticket/", include("backend.ticket.urls", namespace="ticket")),
+    path("api/payment/", include("backend.payment.urls", namespace="payment")),
+    path("api/notification/", include("backend.notification.urls", namespace="notification")),
 ]
 
 if settings.DEBUG:

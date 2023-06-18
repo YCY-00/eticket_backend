@@ -46,13 +46,13 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neondb',
-        'USER': 'mukhammaddiyoralijonov',
-        'PASSWORD': 'F0UvjKHsIVd1',
-        'HOST': 'ep-wild-dawn-494621.ap-southeast-1.aws.neon.tech',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "neondb",
+        "USER": "mukhammaddiyoralijonov",
+        "PASSWORD": "F0UvjKHsIVd1",
+        "HOST": "ep-wild-dawn-494621.ap-southeast-1.aws.neon.tech",
+        "PORT": "5432",
     }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -307,7 +307,7 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "backend API",
     "DESCRIPTION": "Documentation of API endpoints of backend",
     "VERSION": "1.0.0",
-    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
