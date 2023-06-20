@@ -11,7 +11,7 @@ from rest_framework import status
 
 
 class GetEventView(views.APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
     serializer_class = EventSerializer
 
     def get(self, request, event_id: str):

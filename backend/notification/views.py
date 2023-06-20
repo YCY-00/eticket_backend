@@ -1,5 +1,6 @@
 from rest_framework import views, permissions
 from rest_framework.response import Response
+
 from .models import NotificationModel
 from .serializers import NotificationSerializer
 from drf_spectacular.utils import extend_schema
