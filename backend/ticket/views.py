@@ -18,6 +18,18 @@ class GetTicketView(views.APIView):
             return Response({"status": "failed", "message": str(e)}, status=400)
 
 
+class GetEventTicketsView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+    serializer_class = TicketSerializer
+
+    def get(self, request, event_id: str):
+        try:
+            tickets = TicketModel.objects.filter(event=event_id)
+            return Response(data=TicketSerializer(tickets, many=True).data, status=200)
+        except Exception as e:
+            return Response({"status": "failed", "message": str(e)}, status=400)
+
+
 @extend_schema(responses={status.HTTP_200_OK: TicketSerializer(many=True)})
 class GetTicketsView(views.APIView):
     permission_classes = [permissions.AllowAny]

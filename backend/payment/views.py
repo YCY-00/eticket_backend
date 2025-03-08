@@ -97,8 +97,9 @@ class GetUserPaymentsView(views.APIView):
 
     def get(self, request, user_id: str):
         try:
+            print("here")
             user = User.objects.get(id=user_id)
-            payments = PaymentModel.objects.filter(user=user)
+            payments = PaymentModel.objects.filter(customer=user)
             return Response(data=PaymentSerializer(payments, many=True).data, status=200)
         except Exception as e:
             return Response({"status": "failed", "message": str(e)}, status=400)

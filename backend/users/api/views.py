@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import action
@@ -14,6 +15,11 @@ class UserViewSet(CreateModelMixin, RetrieveModelMixin, ListModelMixin, UpdateMo
     serializer_class = UserSerializer
     queryset = User.objects.all()
     lookup_field = "username"
+
+    def get_permissions(self):
+        if self.action == "create":
+            return []
+        return super().get_permissions()
 
     def get_queryset(self, *args, **kwargs):
         assert isinstance(self.request.user.id, int)
